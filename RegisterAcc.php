@@ -11,7 +11,7 @@ $lastName=$_POST["lastName"];
 $phone=$_POST["phone"];
 
 //inserts new account into database
-$sql="INSERT INTO customers (first_name, last_name, phone_number, Email, password) VALUES ('$firstName', '$lastName', '$phone', '$email', $password)";
+$sql="INSERT INTO customers (first_name, last_name, phone_number, email, password) VALUES ('$firstName', '$lastName', '$phone', '$email', $password)";
 if ($conn->query($sql) === TRUE) {
 	session_start();
     $_SESSION['loggedin'] = true;
