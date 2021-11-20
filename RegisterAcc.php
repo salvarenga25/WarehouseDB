@@ -1,4 +1,3 @@
-
 <?php
 include 'db_connection.php';
 $conn = OpenCon();
@@ -17,6 +16,11 @@ if ($conn->query($sql) === TRUE) {
     $_SESSION['loggedin'] = true;
     $_SESSION['email'] = $email;
     $_SESSION['AccType'] = "Customer";
+    $sql="SELECT * FROM employee WHERE email='$email'";
+    $result=$conn->query($sql);
+    if($result->num_rows == 1){
+       $_SESSION['ID'] = $row["customer_id"];
+    }  
 	header('location: WarehouseDB/MyAccount.php');
 	die;
 } else {
