@@ -1,4 +1,4 @@
-seq,seq,street,city,province,zipcode,phone,country
+store_id,supervisor_id,street,city,province,zipcode,phone_number,country
 800,,7400 Brookpark Rd,Cleveland,Ohio,44129,(853) 313-3521,US
 801,,11301 W Pico Blvd,Los Angeles,California,90064,(943) 613-8834,US
 802,,1080 Wellington Rd,London,Ontario,N6E 1M2,(533) 246-4424,CA
@@ -9,7 +9,7 @@ seq,seq,street,city,province,zipcode,phone,country
 807,,470 Saint-Catherine St W,Montreal,Quebec,H3B 1A6,(585) 811-5207,CA
 808,,16221 Ford Rd,Detroit,Michigan,48126,(315) 961-6298,US
 809,,798 Granville St Suite 200,Vancouver,British Columbia,V6Z 3C3,(355) 794-7897,CA
-810,,"Epigmenio Gonz‡lez, Anillo Vial Fray Jun’pero Serra",Queretaro,Queretaro,76146,(722) 477-3308,MX
+810,,"Epigmenio Gonzalez, Anillo Vial Fray Junipero Serra",Queretaro,Queretaro,76146,(722) 477-3308,MX
 811,,4500 Van Nuys Blvd,Sherman Oaks,California,91403,(417) 356-3783,US
 812,,4379 Walker Rd,Windsor,Ontario,N8W 3T6,(236) 742-5121,CA
 813,,4906 Town Center Pkwy Ste 200,Jacksonville,Florida,32246,(853) 214-2104,US
