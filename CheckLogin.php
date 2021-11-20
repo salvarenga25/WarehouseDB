@@ -6,7 +6,7 @@ $email=$_POST["email"];
 $password=$_POST["password"];
 
 //finds all customer emails, and checks if given email is in there
-$sql="SELECT * FROM customers WHERE email='$email'";
+$sql="SELECT * FROM customers WHERE email='$email' AND password='$password'";
 $result=$conn->query($sql);
 if($result->num_rows == 1){
 	//successful login
@@ -18,7 +18,7 @@ if($result->num_rows == 1){
 	die;
 } else {
   //finds all employee emails, and checks if given email is in there
-  $sql="SELECT * FROM employee WHERE email='$email'";
+  $sql="SELECT * FROM employee WHERE email='$email' AND password='$password'";
   $result=$conn->query($sql);
   if($result->num_rows == 1){
     //successful login
