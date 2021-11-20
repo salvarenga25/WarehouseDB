@@ -1,4 +1,4 @@
-<?php
+m<?php
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     header('location: WarehouseDB/MyAccount.php');
@@ -20,9 +20,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 <!-- Top Menu -->
 
 <!-- Login form -->
-<h1 style= "padding-left: 50px;"  class="title">Login</h1>
+<h1 style= "padding-left: 50px;">Login</h1>
 <form style= "padding-left: 50px;"  method="post" action="CheckLogin.php">
-    <input type="text" name="username"> Username<br/>
+    <input type="text" name="email"> Email<br/>
     <input type="password" name="password"> Password<br/>
     <input type="submit">
 </form>
