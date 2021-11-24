@@ -6,40 +6,37 @@ $email=$_POST["email"];
 $password=$_POST["password"];
 
 //finds all customer emails, and checks if given email is in there
-$sql="SELECT * FROM customers WHERE email='$email'";
+$sql="SELECT * FROM customers WHERE email='$email' AND password='$password'";
 $result=$conn->query($sql);
-if($result->num_rows == 1){
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+if($row = $result->fetch_assoc()){
 	//successful login
 	session_start();
 	$_SESSION['loggedin'] = true;
 	$_SESSION['email'] = $email;
     $_SESSION['AccType'] = "Customer";
-    $sql="SELECT * FROM employee WHERE email='$email'";
-    $result=$conn->query($sql);
-    if($result->num_rows == 1){
-       $_SESSION['ID'] = $row["customer_id"];
-    }  
-	header('location: WarehouseDB/MyAccount.php');
+    $_SESSION['ID'] = $row["customer_id"]; 
+	header('location: Pay.php');
 	die;
 } else {
   //finds all employee emails, and checks if given email is in there
-  $sql="SELECT * FROM employee WHERE email='$email'";
+  $sql="SELECT * FROM employee WHERE email='$email' AND password='$password'";
   $result=$conn->query($sql);
-  if($result->num_rows == 1){
+  if($row = $result->fetch_assoc()){
     //successful login
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['email'] = $email;
     $_SESSION['AccType'] = "Employee";
     $result=$conn->query($sql);
-    if($result->num_rows == 1){
-       $_SESSION['ID'] = $row["employee_id"];
-    }  
-    header('location: WarehouseDB/MyAccount.php');
+    $_SESSION['ID'] = $row["employee_id"];
+    header('location: Pay.php');
     die;
   } else {
     //failed login
-    header('location: WarehouseDB/Login.php');
+    header('location: Login.php');
     die;
   }
 }
