@@ -17,14 +17,13 @@ $conn = OpenCon();
 <?php
 //displays account information
 $id =	$_SESSION['ID'];
-echo "<p style= 'padding-left: 50px;' style='font-size:24px;'>Account Details:</p>";
-$sql = 'SELECT total_hours_bi_weekly.*, biweekly.*, shifts.hourly_rate 
+echo "<p style= 'padding-left: 50px;' style='font-size:24px;'>Pay:</p>";
+$sql = "SELECT total_hours_bi_weekly.*, biweekly.*, shifts.hourly_rate 
 		FROM ((total_hours_bi_weekly 
         INNER JOIN biweekly ON total_hours_bi_weekly.bi_week_id = biweekly.biweek_id 
         INNER JOIN shifts ON total_hours_bi_weekly.bi_week_id = shifts.bi_week_id
-        WHERE total_hours_bi_weekly.employee_id =\'' . $id . '\';';
+        WHERE total_hours_bi_weekly.employee_id ='$id'";
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     echo '<table>';
   	echo '<tr>';
@@ -33,9 +32,9 @@ if ($result->num_rows > 0) {
   		echo '<th>Total</th>';
     echo '</tr>';
 	While($row = $result->fetch_assoc()){
-      echo '<td style= "padding-left: 60px;" >' . $row["date_week"] . '</td>';
-      echo '<td style= "padding-left: 60px;" >' . $row["hourly_rate"] . '</td>';
-      echo '<td style= "padding-left: 60px;" >' . $row["total_pay"] . '</td>';
+      //echo '<td style= "padding-left: 60px;" >' . $row["date_week"] . '</td>';
+      //echo '<td style= "padding-left: 60px;" >' . $row["hourly_rate"] . '</td>';
+      echo "<td style= 'padding-left: 60px;' >" . $row["total_pay"] . "</td>";
     }
     echo '</table>';
 }
